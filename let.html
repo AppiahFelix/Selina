@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selina, My Heart Belongs to You ❤️</title>
+    <style>
+        /* Romantic Background */
+        body {
+            background: url('https://source.unsplash.com/1600x900/?romantic,love') no-repeat center center/cover;
+            font-family: 'Cursive', sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Proposal Box */
+        .proposal-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.7);
+            max-width: 600px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Proposal Message */
+        h1 {
+            font-size: 2.5em;
+            animation: glow 2s infinite alternate;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .yes {
+            background: #ff4081;
+            color: white;
+            font-weight: bold;
+        }
+
+        .yes:hover {
+            background: #e91e63;
+            transform: scale(1.1);
+        }
+
+        .no {
+            background: #ff1744;
+            color: white;
+            font-weight: bold;
+        }
+
+        .no:hover {
+            background: #d50000;
+            transform: scale(1.1);
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            color: pink;
+            font-size: 30px;
+            animation: float 5s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff4081; }
+            100% { text-shadow: 0 0 20px #e91e63; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Music Player */
+        .music-player {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+    <script>
+        function sendToWhatsApp(response) {
+            const phoneNumber = "233599491892";  // Replace with your WhatsApp number (include country code)
+            const message = encodeURIComponent(`Selina, you just responded: ${response}! 💖`);
+            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                document.body.appendChild(heart);
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+
+        setInterval(createHearts, 800);
+    </script>
+</head>
+<body>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <audio id="bg-music" controls autoplay loop>
+            <source src="https://www.dropbox.com/scl/fi/your-music-file.mp3?rlkey=yourlink&dl=1" type="audio/mp3">
+        </audio>
+    </div>
+
+    <div class="proposal-box">
+        <h1>Selina, My Heart Belongs to You ❤️</h1>
+        <p>
+            From the moment I met you, my world changed. You have filled my life with love, laughter, and happiness. 
+            Every second with you is a blessing, and I can't imagine my future without you in it. 
+            Your smile lights up my darkest days, and your kindness makes me a better person.  
+            <br><br>
+            Today, I have just one question for you...  
+            <br><br>
+            <strong>Selina, Will You Be My Girlfriend? 💖</strong>
+        </p>
+        <div class="buttons">
+            <button class="yes" onclick="sendToWhatsApp('Yes')">Yes, I will! 💕</button>
+            <button class="no" onclick="sendToWhatsApp('No')">No, but I still care 😢</button>
+        </div>
+    </div>
+
+</body>
+</html>
