@@ -14,10 +14,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            min-height: 100vh;  /* Allows scrolling if content overflows */
+            padding: 20px;  /* Adds spacing to prevent content from being cut off */
         }
 
         /* Proposal Box */
@@ -103,13 +104,6 @@
             0% { opacity: 0; transform: scale(0.8); }
             100% { opacity: 1; transform: scale(1); }
         }
-
-        /* Music Player */
-        .music-player {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
     </style>
     <script>
         function sendToWhatsApp(response) {
@@ -134,14 +128,6 @@
     </script>
 </head>
 <body>
-
-    <!-- Music Player -->
-    <div class="music-player">
-        <audio id="bg-music" controls autoplay loop>
-            <source src="https://www.dropbox.com/scl/fi/your-music-file.mp3?rlkey=yourlink&dl=1" type="audio/mp3">
-        </audio>
-    </div>
-
     <div class="proposal-box">
         <h1>Selina, My Heart Belongs to You ❤️</h1>
         <p>
@@ -158,6 +144,5 @@
             <button class="no" onclick="sendToWhatsApp('No')">No, but I still care 😢</button>
         </div>
     </div>
-
 </body>
 </html>
